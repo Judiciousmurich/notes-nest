@@ -29,11 +29,36 @@ CREATE TABLE Notes (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+-- Assuming 'user_id' 1 corresponds to 'user1' and 'user_id' 2 corresponds to 'user2'
+INSERT INTO Notes (user_id, title, content) VALUES (1, 'First Note', 'This is the content of the first note.');
+INSERT INTO Notes (user_id, title, content) VALUES (2, 'Second Note', 'This is the content of the second note.');
+INSERT INTO Notes (user_id, title, content) VALUES (3, 'Third Note', 'This is the content of the third note.');
+INSERT INTO Notes (user_id, title, content) VALUES (4, 'Fourth Note', 'This is the content of the fourth note.');
+INSERT INTO Notes (user_id, title, content) VALUES (5, 'Fifth Note', 'This is the content of the fifth note.');
+INSERT INTO Notes (user_id, title, content) VALUES (6, 'Sixth Note', 'This is the content of the sixth note.');
+INSERT INTO Notes (user_id, title, content) VALUES (7, 'Seventh Note', 'This is the content of the seventh note.');
+INSERT INTO Notes (user_id, title, content) VALUES (8, 'Eighth Note', 'This is the content of the eighth note.');
+INSERT INTO Notes (user_id, title, content) VALUES (9, 'Ninth Note', 'This is the content of the ninth note.');
+INSERT INTO Notes (user_id, title, content) VALUES (10, 'Tenth Note', 'This is the content of the tenth note.');
+
+
 -- Create the Categories table
 CREATE TABLE Categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(255)
 );
+
+INSERT INTO Categories (category_name) VALUES ('Work');
+INSERT INTO Categories (category_name) VALUES ('Personal');
+INSERT INTO Categories (category_name) VALUES ('Study');
+INSERT INTO Categories (category_name) VALUES ('Health');
+INSERT INTO Categories (category_name) VALUES ('Hobbies');
+INSERT INTO Categories (category_name) VALUES ('Travel');
+INSERT INTO Categories (category_name) VALUES ('Recipes');
+INSERT INTO Categories (category_name) VALUES ('Ideas');
+INSERT INTO Categories (category_name) VALUES ('Goals');
+INSERT INTO Categories (category_name) VALUES ('Shopping');
+
 
 -- Create the NoteCategories table
 CREATE TABLE NoteCategories (
