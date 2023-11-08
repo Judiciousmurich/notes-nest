@@ -77,3 +77,5 @@ CREATE TABLE Attachments (
     attachment_type VARCHAR(50),
     FOREIGN KEY (note_id) REFERENCES Notes(note_id)
 );
+
+
