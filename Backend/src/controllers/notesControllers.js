@@ -1,4 +1,5 @@
-// import config from '../config/config.js';
+const mysql = require('mysql');
+const config = require('../config/config.js');
 
 // Get all users
 export const getUsers = async (req, res) => {
