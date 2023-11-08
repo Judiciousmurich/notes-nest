@@ -7,6 +7,17 @@ CREATE TABLE Users (
     UNIQUE (username)
 );
 
+INSERT INTO Users (username, password) VALUES ('user1', 'password1');
+INSERT INTO Users (username, password) VALUES ('user2', 'password2');
+INSERT INTO Users (username, password) VALUES ('user3', 'password3');
+INSERT INTO Users (username, password) VALUES ('user4', 'password4');
+INSERT INTO Users (username, password) VALUES ('user5', 'password5');
+INSERT INTO Users (username, password) VALUES ('user6', 'password6');
+INSERT INTO Users (username, password) VALUES ('user7', 'password7');
+INSERT INTO Users (username, password) VALUES ('user8', 'password8');
+INSERT INTO Users (username, password) VALUES ('user9', 'password9');
+INSERT INTO Users (username, password) VALUES ('user10', 'password10');
+
 -- Create the Notes table
 CREATE TABLE Notes (
     note_id INT AUTO_INCREMENT PRIMARY KEY,
