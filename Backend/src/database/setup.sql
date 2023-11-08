@@ -78,4 +78,10 @@ CREATE TABLE Attachments (
     FOREIGN KEY (note_id) REFERENCES Notes(note_id)
 );
 
-
+-- Assuming 'note_id' 1 corresponds to the first note
+INSERT INTO Attachments (note_id, attachment_url, attachment_type) VALUES (1, 'https://example.com/image1.jpg', 'image');
+-- Assuming 'note_id' 2 corresponds to the second note
+INSERT INTO Attachments (note_id, attachment_url, attachment_type) VALUES (2, 'https://example.com/file1.pdf', 'pdf');
+-- Assuming 'note_id' 3 corresponds to the third note
+INSERT INTO Attachments (note_id, attachment_url, attachment_type) VALUES (3, 'https://example.com/audio1.mp3', 'audio');
+-- Continue adding similar records as needed for the other notes and their respective attachments.
