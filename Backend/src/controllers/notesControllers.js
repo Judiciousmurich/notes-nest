@@ -1,97 +1,69 @@
 const mysql = require('mysql');
 const config = require('../config/config.js');
 
-// Get all users
-export const getUsers = async (req, res) => {
-  try {
-    const pool = await sql.connect(config.sql);
-    const result = await pool.request().query('SELECT * FROM Users');
-    if (!result.recordset[0]) {
-      res.status(404).json({ message: 'Users not found' });
+const pool = mysql.createPool(config.mysql);
+
+// Get all notes
+const getNotes = (req, res) => {
+  pool.query('SELECT * FROM Notes', (error, results) => {
+    if (error) {
+      res.status(500).json({ error: `An error occurred while retrieving notes... ${error.message}` });
     } else {
-      res.status(200).json(result.recordset);
+      res.status(200).json(results);
     }
-  } catch (error) {
-    res.status(500).json({ error: `An error occurred while retrieving users... ${error.message}` });
-  } finally {
-    // sql.close(); // Close the SQL connection
-  }
+  });
 };
 
-// Get a specific user by ID
-export const getUserById = async (req, res) => {
-  const userId = req.params.id;
-  try {
-    const pool = await sql.connect(config.sql);
-    const result = await pool.request().query(`SELECT * FROM Users WHERE id = ${userId}`);
-    if (!result.recordset[0]) {
-      res.status(404).json({ message: 'User not found' });
+// Get a specific note by ID
+const getNoteById = (req, res) => {
+  const noteId = req.params.id;
+  pool.query('SELECT * FROM Notes WHERE id = ?', noteId, (error, results) => {
+    if (error) {
+      res.status(500).json({ error: `An error occurred while retrieving the note... ${error.message}` });
+    } else if (results.length === 0) {
+      res.status(404).json({ message: 'Note not found' });
     } else {
-      res.status(200).json(result.recordset[0]);
+      res.status(200).json(results[0]);
     }
-  } catch (error) {
-    res.status(500).json({ error: `An error occurred while retrieving the user... ${error.message}` });
-  } finally {
-    // sql.close(); // Close the SQL connection
-  }
+  });
 };
 
-// Create a new user
-export const createUser = async (req, res) => {
-  const {  password, email } = req.body;
-  console.log(req.body)
-  const created_at = new Date().toDateString()
-  try {
-    const pool = await sql.connect(config.sql);
-    const result = await pool
-      .request()
-      // .input('username', sql.NVarChar, username)
-      .input('password', sql.NVarChar, password)
-      .input('email', sql.NVarChar, email)
-      .input('created_at', sql.NVarChar, created_at)
-      .query('INSERT INTO Users (password, email, created_at) VALUES ( @password, @email, @created_at)');
-    res.status(201).json({ message: 'User created successfully' });
-  } catch (error) {
-    res.status(500).json({ error: `An error occurred while creating the user... ${error.message}` });
-  } finally {
-    // sql.close(); // Close the SQL connection
-  }
+// Create a new note
+const createNote = (req, res) => {
+  const { title, content } = req.body;
+  const created_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  pool.query('INSERT INTO Notes (title, content, created_at) VALUES (?, ?, ?)', [title, content, created_at], (error) => {
+    if (error) {
+      res.status(500).json({ error: `An error occurred while creating the note... ${error.message}` });
+    } else {
+      res.status(201).json({ message: 'Note created successfully' });
+    }
+  });
 };
 
-// Update a user by ID
-export const updateUser = async (req, res) => {
-  const userId = req.params.id;
-  const { password, email } = req.body;
-  try {
-    const pool = await sql.connect(config.sql);
-    const result = await pool
-      .request()
-      // .input('username', sql.NVarChar, username)
-      .input('password', sql.NVarChar, password)
-      .input('email', sql.NVarChar, email)
-      .input('id', sql.Int, userId)
-      .query('UPDATE Users SET  password = @password, email = @email WHERE id = @id');
-    res.status(200).json({ message: 'User updated successfully' });
-  } catch (error) {
-    res.status(500).json({ error: `An error occurred while updating the user... ${error.message}` });
-  } finally {
-    // sql.close(); // Close the SQL connection
-  }
+// Update a note by ID
+const updateNote = (req, res) => {
+  const noteId = req.params.id;
+  const { title, content } = req.body;
+  pool.query('UPDATE Notes SET title = ?, content = ? WHERE id = ?', [title, content, noteId], (error) => {
+    if (error) {
+      res.status(500).json({ error: `An error occurred while updating the note... ${error.message}` });
+    } else {
+      res.status(200).json({ message: 'Note updated successfully' });
+    }
+  });
 };
 
-// Delete a user by ID
-export const deleteUser = async (req, res) => {
-  const userId = req.params.id;
-  try {
-    const pool = await sql.connect(config.sql);
-    const result = await pool
-      .request()
-      .input('id', sql.Int, userId)
-      .query('DELETE FROM Users WHERE id = @id');
-    res.status(200).json({ message: 'User deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ error: `An error occurred while deleting the user... ${error.message}` });
-  } finally {
-    // sql.close(); // Close the SQL connection
-  }
+// Delete a note by ID
+const deleteNote = (req, res) => {
+  const noteId = req.params.id;
+  pool.query('DELETE FROM Notes WHERE id = ?', noteId, (error) => {
+    if (error) {
+      res.status(500).json({ error: `An error occurred while deleting the note... ${error.message}` });
+    } else {
+      res.status(200).json({ message: 'Note deleted successfully' });
+    }
+  });
 };
+
+
