@@ -21,7 +21,7 @@ userRoutes(app);
 categoryRoutes(app);
 
 app.get("/", (req, res) => {
-    res.send("Hello😁 Welcome ecommerce API!");
+    res.send("Hello😁 Welcome notes API!");
 });
 
 
