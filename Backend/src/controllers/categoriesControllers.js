@@ -59,4 +59,14 @@ export const updateCategory = (req, res) => {
   });
 };
 
-
+// Delete a category by ID
+export const deleteCategory = (req, res) => {
+  const categoryId = req.params.id;
+  pool.query('DELETE FROM categories WHERE id = ?', categoryId, (error) => {
+    if (error) {
+      res.status(500).json({ error: `An error occurred while deleting the category... ${error.message}` });
+    } else {
+      res.status(200).json({ message: 'Category deleted successfully' });
+    }
+  });
+};
