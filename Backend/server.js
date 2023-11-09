@@ -5,6 +5,10 @@ import config from './config/config.js';
 const app = express();
 const pool = mysql.createPool(config.mysql);
 
+//my-routes
+
+userRoutes(app);
+categoryRoutes(app);
 
 
 const PORT = 8081; 
