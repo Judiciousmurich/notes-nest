@@ -13,6 +13,6 @@ categoryRoutes(app);
 
 const PORT = 8081; 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(config.port, () => {
+  console.log(`Server is running on port ${config.url}`);
 });
