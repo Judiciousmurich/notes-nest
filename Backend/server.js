@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 //my-routes
 userRoutes(app);
 categoryRoutes(app);
+notesRoutes(app);
 
 app.get("/", (req, res) => {
     res.send("Hello😁 Welcome notes API!");
