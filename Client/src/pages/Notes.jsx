@@ -27,4 +27,17 @@ const Notes = () => {
       </ul>
 
       {/* Input field for adding a new note */}
-      <div
+      <div>
+        <input
+          type="text"
+          value={currentNote}
+          onChange={(e) => setCurrentNote(e.target.value)}
+          placeholder="Enter your note"
+        />
+        <button onClick={addNote}>Add Note</button>
+      </div>
+    </div>
+  );
+};
+
+export default Notes;
