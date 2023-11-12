@@ -16,7 +16,6 @@ const Notes = () => {
     <div>
       <h1>My Notes</h1>
 
-      {/* Display the list of notes */}
       <ul>
         {notes.map((note, index) => (
           <li key={index}>{note}</li>
