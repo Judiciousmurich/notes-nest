@@ -5,7 +5,6 @@ const Notes = () => {
 
   const [currentNote, setCurrentNote] = useState('');
 
-  // Function to add a new note
   const addNote = () => {
     if (currentNote.trim() !== '') {
       setNotes([...notes, currentNote]);
