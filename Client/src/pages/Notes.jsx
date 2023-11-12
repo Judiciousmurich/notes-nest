@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
 const Notes = () => {
-  // State to manage the list of notes
   const [notes, setNotes] = useState([]);
 
-  // State to manage the current note being edited
   const [currentNote, setCurrentNote] = useState('');
 
   // Function to add a new note
