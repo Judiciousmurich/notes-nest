@@ -22,7 +22,6 @@ const Notes = () => {
         ))}
       </ul>
 
-      {/* Input field for adding a new note */}
       <div>
         <input
           type="text"
