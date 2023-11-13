@@ -1,5 +1,3 @@
-// Tagging.jsx
-import React from 'react';
 
 const Tagging = ({ onAddTag, onDeleteTag, tags }) => {
   return (
