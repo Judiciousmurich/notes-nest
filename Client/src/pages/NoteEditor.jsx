@@ -1,5 +1,3 @@
-// NoteEditor.jsx
-import React from 'react';
 
 const NoteEditor = ({ note, onUpdateNote }) => {
   const handleTitleChange = (e) => {
