@@ -1,5 +1,3 @@
-// Auth.jsx
-import React from 'react';
 
 const Auth = ({ onLogin, onRegister, onLogout, user }) => {
   return (
