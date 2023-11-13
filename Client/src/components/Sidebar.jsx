@@ -1,35 +1,57 @@
-/* Add this to your styles */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+import 'tailwindcss/tailwind.css'; // Import Tailwind CSS styles
 
-/* Add these classes to your HTML elements */
-<div className="bg-gradient-to-r from-green-400 to-blue-500">
+const Sidebar = ({
+  notes,
+  onAddNote,
+  onDeleteNote,
+  activeNote,
+  setActiveNote,
+}) => {
+  const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
 
-    <button className="hover:text-blue-500">Hover me</button>
+  return (
+    <div className="flex-none w-1/3 h-screen border-r border-gray-300">
+      <div className="flex justify-between p-6">
+        <h1 className="text-xl font-semibold">Notes</h1>
+        <button
+          className="bg-transparent border border-blue-500 text-blue-500 px-4 py-2 rounded transition duration-300 hover:bg-blue-500 hover:text-white"
+          onClick={onAddNote}
+        >
+          Add
+        </button>
+      </div>
+      <div className="overflow-y-scroll h-full">
+        {sortedNotes.map(({ id, title, body, lastModified }, i) => (
+          <div
+            key={id}
+            className={`p-6 cursor-pointer ${
+              id === activeNote && "bg-blue-500 text-white"
+            }`}
+            onClick={() => setActiveNote(id)}
+          >
+            <div className="flex justify-between">
+              <strong>{title}</strong>
+              <button
+                className="text-red-600"
+                onClick={(e) => onDeleteNote(id)}
+              >
+                Delete
+              </button>
+            </div>
 
-    <div className="app-sidebar">
-        <div className="app-sidebar-header">
-            <h1 className="text-2xl font-bold mb-4">Notes</h1>
-            <button
-                className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                onClick={onAddNote}
-            >
-                Add
-            </button>
-        </div>
-        <div className="app-sidebar-notes">
-            {sortedNotes.map(({ id, title, body, lastModified }, i) => (
-                <div
-                    className={`app-sidebar-note ${id === activeNote && "active"}`}
-                    onClick={() => setActiveNote(id)}
-                >
-                    <div className="sidebar-note-title">
-                        <strong>{title}</strong>
-                        <button
-                            className="text-red-600 hover:text-red-400"
-                            onClick={(e) => onDeleteNote(id)}
-                        >
-                            Delete
-                        </button>
-                    </div>
+            <p>{body && body.substr(0, 100) + "..."}</p>
+            <small className="block text-gray-600">
+              Last Modified{" "}
+              {new Date(lastModified).toLocaleDateString("en-GB", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </small>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-                    <p>{body && body.substr(0
+export default Sidebar;
