@@ -1,4 +1,3 @@
-import 'tailwindcss/tailwind.css'; // Import Tailwind CSS styles
 
 const Sidebar = ({
   notes,
