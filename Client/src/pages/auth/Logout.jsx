@@ -1,5 +1,5 @@
 
-const Auth = ({ onLogin,  onLogout, user }) => {
+const Auth = ({   onLogout, user }) => {
     return (
       <div>
         {user ? (
