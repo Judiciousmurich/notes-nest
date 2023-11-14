@@ -1,5 +1,5 @@
 
-const Auth = ({ onLogin, }) => {
+const Login = ({ onLogin, }) => {
     return (
         <div>
 
@@ -11,4 +11,4 @@ const Auth = ({ onLogin, }) => {
     );
 };
 
-export default Auth;
+export default Login;
