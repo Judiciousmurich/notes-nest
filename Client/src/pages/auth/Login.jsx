@@ -7,7 +7,6 @@ const Auth = ({ onLogin, onRegister, onLogout, user }) => {
         ) : (
           <>
             <button onClick={onLogin}>Login</button>
-            <button onClick={onRegister}>Register</button>
           </>
         )}
       </div>
