@@ -1,12 +1,11 @@
 
-const Auth = ({ onRegister, onLogout, user }) => {
+const Auth = ({ onLogin,  onLogout, user }) => {
     return (
       <div>
         {user ? (
           <button onClick={onLogout}>Logout</button>
         ) : (
           <>
-            <button onClick={onRegister}>Register</button>
           </>
         )}
       </div>
