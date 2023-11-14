@@ -1,5 +1,5 @@
 
-const Auth = ({ onRegister, }) => {
+const Register = ({ onRegister, }) => {
     return (
       <div>
         {user ? (
@@ -13,5 +13,5 @@ const Auth = ({ onRegister, }) => {
     );
   };
   
-  export default Auth;
+  export default Register;
   
