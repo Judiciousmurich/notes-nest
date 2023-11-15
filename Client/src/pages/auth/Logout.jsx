@@ -1,5 +1,5 @@
 
-const Auth = ({   onLogout, user }) => {
+const Logout= ({   onLogout, user }) => {
     return (
       <div>
         {user ? (
@@ -12,5 +12,5 @@ const Auth = ({   onLogout, user }) => {
     );
   };
   
-  export default Auth;
+  export default Logout;
   
