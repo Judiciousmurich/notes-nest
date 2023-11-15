@@ -4,3 +4,5 @@ export const router = createBrowserRouter(
         <Route>
                  {/* USER ROUTES*/}
                  </Route>
+                     )
+                     );
