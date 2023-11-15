@@ -2,3 +2,4 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
+                 {/* USER ROUTES*/}
