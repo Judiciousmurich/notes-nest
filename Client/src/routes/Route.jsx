@@ -3,3 +3,4 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
                  {/* USER ROUTES*/}
+                 </Route>
