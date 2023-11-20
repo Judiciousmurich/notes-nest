@@ -57,7 +57,6 @@ const Notes = () => {
           value={currentCategory}
           onChange={(e) => setCurrentCategory(e.target.value)}
         >
-          {/* Add your specific categories here */}
           <option value="">Select</option>
           <option value="work">Work</option>
           <option value="personal">Personal</option>
