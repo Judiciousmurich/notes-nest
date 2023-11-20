@@ -32,7 +32,6 @@ const Notes = () => {
           onChange={(e) => filterNotes(e.target.value)}
         >
           <option value="">All</option>
-          {/* Add your specific categories here */}
           <option value="work">Work</option>
           <option value="personal">Personal</option>
           {/* Add more categories as needed */}
