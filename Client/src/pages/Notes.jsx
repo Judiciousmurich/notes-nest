@@ -34,7 +34,6 @@ const Notes = () => {
           <option value="">All</option>
           <option value="work">Work</option>
           <option value="personal">Personal</option>
-          {/* Add more categories as needed */}
         </select>
       </div>
 
