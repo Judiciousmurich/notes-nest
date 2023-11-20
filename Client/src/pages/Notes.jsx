@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Notes = () => {
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState('');
-  const [currentCategory, setCurrentCategory] = useState(''); // New state for the selected category
+  const [currentCategory, setCurrentCategory] = useState(''); 
 
   const addNote = () => {
     if (currentNote.trim() !== '' && currentCategory.trim() !== '') {
