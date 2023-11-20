@@ -25,7 +25,6 @@ const Notes = () => {
     <div>
       <h1>My Notes</h1>
 
-      {/* Category Filter */}
       <div>
         <label>Select Category: </label>
         <select
