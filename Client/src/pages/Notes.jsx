@@ -17,7 +17,6 @@ const Notes = () => {
     setCurrentCategory(category);
   };
 
-  // Filtered notes based on the selected category
   const filteredNotes = currentCategory
     ? notes.filter((note) => note.category === currentCategory)
     : notes;
