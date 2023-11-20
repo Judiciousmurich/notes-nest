@@ -60,7 +60,6 @@ const Notes = () => {
           <option value="">Select</option>
           <option value="work">Work</option>
           <option value="personal">Personal</option>
-          {/* Add more categories as needed */}
         </select>
         <button onClick={addNote}>Add Note</button>
       </div>
