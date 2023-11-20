@@ -7,7 +7,6 @@ const Notes = () => {
 
   const addNote = () => {
     if (currentNote.trim() !== '' && currentCategory.trim() !== '') {
-      // Include category information with the note
       setNotes([...notes, { note: currentNote, category: currentCategory }]);
       setCurrentNote('');
       setCurrentCategory('');
