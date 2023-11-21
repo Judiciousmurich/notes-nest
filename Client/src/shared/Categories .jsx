@@ -1,6 +1,5 @@
 const uniqueCategories = Array.from(new Set(notes.map(note => note.category)));
 
-// ...
 
 <select
   value={currentCategory}
