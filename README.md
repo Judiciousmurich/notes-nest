@@ -7,7 +7,8 @@ A powerful and user-friendly note-taking application that allows users to effici
 #### Organized Storage: Notes are stored securely in a MySQL database.
 #### Responsive Design: Fully responsive UI for a great experience on any device.
 #### RESTful API: Backend built with RESTful principles for smooth communication.
-🛠️ Built With
+
+# Built With
 ### Frontend:
 React: For creating an interactive and dynamic user interface.
 ###  Backend:
