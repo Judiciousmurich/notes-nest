@@ -22,6 +22,6 @@ React: For creating an interactive and dynamic user interface.
 #### PUT /notes/:id: Update an existing note.
 #### DELETE /notes/:id: Delete a note.
 # 📦 Installation
-#Prerequisites:
+
 Node.js and npm installed.
 MySQL database setup.
